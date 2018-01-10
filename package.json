@@ -26,6 +26,7 @@
   "homepage": "https://github.com/acyortjs/acyort-paginator#readme",
   "devDependencies": {
     "acyort": "^2.0.7",
+    "acyort-config": "^0.1.3",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",

@@ -1,0 +1,14 @@
+<div id="pagination">
+  {% if page.prev %}
+  <a rel="prev" href="{{ _url(page.prev) }}">← prev</a>
+  {% endif %}
+
+  {{ page.current }}
+  {{ page.total }}
+
+  {{ _paginator({ current: page.current, total: page.total}) }}
+
+  {% if page.next %}
+  <a rel="next" href="{{ _url(page.next) }}">next →</a>
+  {% endif %}
+</div>
