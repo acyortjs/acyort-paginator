@@ -1,4 +1,9 @@
-const paginator = ({ current, total }) => {
+function paginator({ current, total }) {
+  console.log(this)
+  if (!current && !total) {
+    return ''
+  }
+
   const step = 2
 
   function num(f, t) {
@@ -10,11 +15,11 @@ const paginator = ({ current, total }) => {
   }
 
   function last() {
-    return `<i>...</i><a>${total}</a>`
+    return `<i>&hellip;</i><a>${total}</a>`
   }
 
   function first() {
-    return '<a>1</a><i>...</i>'
+    return '<a>1</a><i>&hellip;</i>'
   }
 
   const html = [
