@@ -1,25 +1,32 @@
-function paginator({ current, total }) {
-  console.log(this)
+function paginator({ base, current, total }, more = '&hellip;') {
+  const { _url } = this.helper.methods
+  const url = (n) => {
+    if (n === 1) {
+      return _url(`${base}/`)
+    }
+    return _url(`${base}/page/${n}/`)
+  }
+
   if (!current && !total) {
     return ''
   }
 
-  const step = 2
+  const step = 1
 
   function num(f, t) {
     return Array(t - f)
       .fill(f)
       .map((n, i) => n + i)
-      .map(n => `<a${n === current ? ' class="current"' : ''}>${n}</a>`)
+      .map(n => `<a ${n === current ? 'class="current"' : `href="${url(n)}"`}>${n}</a>`)
       .join('')
   }
 
   function last() {
-    return `<i>&hellip;</i><a>${total}</a>`
+    return `<i>${more}</i><a href="${url(total)}">${total}</a>`
   }
 
   function first() {
-    return '<a>1</a><i>&hellip;</i>'
+    return `<a href="${url(1)}">1</a><i>${more}</i>`
   }
 
   const html = [

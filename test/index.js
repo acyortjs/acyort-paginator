@@ -4,15 +4,11 @@ const { defaults } = require('acyort-config')
 
 const config = defaults
 
-config.title = 'AcyOrt'
-config.description = 'A Node.js blog tool powered by GitHub.'
-config.user = 'LoeiFy'
-config.repository = 'Recordum'
 config.base = __dirname
 config.cache =  true
-config.url = 'http://acyort.com'
 config.scripts = ['helper.js']
 config.scripts_dir = '/'
+config.per_page = 1
 
 const acyort = new Acyort(config)
 
