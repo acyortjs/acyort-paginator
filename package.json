@@ -1,7 +1,7 @@
 {
   "name": "acyort-paginator",
-  "version": "0.1.0",
-  "description": "Paginator Helper for AcyOrt",
+  "version": "0.1.1",
+  "description": "Paginator for AcyOrt",
   "main": "index.js",
   "scripts": {
     "test": "npm run test:lint && npm run test:cover && npm run clean",
@@ -26,8 +26,8 @@
   },
   "homepage": "https://github.com/acyortjs/acyort-paginator#readme",
   "devDependencies": {
-    "acyort": "^2.0.9",
-    "acyort-config": "^0.1.5",
+    "acyort": "^2.1.1",
+    "acyort-config": "^1.0.2",
     "cheerio": "^1.0.0-rc.2",
     "eslint": "^4.15.0",
     "eslint-config-airbnb-base": "^12.1.0",

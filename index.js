@@ -1,1 +1,1 @@
-acyort.extend.helper('_paginator', require('./paginator').bind(acyort))
+acyort.helper.register('_paginator', require('./paginator').bind(acyort))
