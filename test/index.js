@@ -14,11 +14,11 @@ config.scripts = ['helper.js']
 config.scripts_dir = '/'
 config.per_page = 1
 
-const acyort = new Acyort(config)
-
 describe('paginator', () => {
   it('build', async function () {
-    this.timeout = 10000
+    this.timeout(5000)
+
+    const acyort = new Acyort(config)
     await acyort.build()
 
     assert($('index.html').html() === '<html><head></head><body><span><a class=\"current\">1</a><a href=\"/page/2/\">2</a><a href=\"/page/3/\">3</a><a href=\"/page/4/\">4</a><a href=\"/page/5/\">5</a><i>????</i><a href=\"/page/10/\">10</a></span>\n</body></html>')
@@ -30,5 +30,17 @@ describe('paginator', () => {
     assert($('categories/2983644/page/4/index.html').html() === '<html><head></head><body><span><a href=\"/categories/2983644/\">1</a><a href=\"/categories/2983644/page/2/\">2</a><a href=\"/categories/2983644/page/3/\">3</a><a class=\"current\">4</a><a href=\"/categories/2983644/page/5/\">5</a></span>\n</body></html>')
 
     assert($('categories/index.html').html() === '<html><head></head><body></body></html>')
+  })
+
+  it('reset', async function () {
+    this.timeout(5000)
+
+    const acyort = new Acyort(config)
+    await acyort.start(2222)
+    await acyort.build()
+
+    assert(typeof acyort.helper.methods._paginator === 'function')
+
+    acyort.server.close()
   })
 })
